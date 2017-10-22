@@ -26,7 +26,7 @@
     "test-browser": "./bin/test-browser.js",
     "jshint": "jshint -c .jshintrc lib test/test.js",
     "test": "npm run jshint && ./bin/run-test.sh",
-    "build": "mkdirp dist && npm run browserify && npm run min",
+    "build": "mkdir -p dist && npm run browserify && npm run min",
     "browserify": "browserify -p bundle-collapser/plugin -s PouchReplicationStream . | ./bin/es3ify.js | derequire > dist/pouchdb.replication-stream.js",
     "min": "uglifyjs dist/pouchdb.replication-stream.js -mc > dist/pouchdb.replication-stream.min.js",
     "dev": "browserify test/test.js > test/test-bundle.js && npm run dev-server",
